@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+./clojures/1.10.1.727/bin/clojure "$@"
+
