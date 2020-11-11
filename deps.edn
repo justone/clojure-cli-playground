@@ -2,6 +2,11 @@
                   :ns-aliases {core clojure.core
                                pprint clojure.pprint}}
 
+           :deploy-to-prod {:exec-fn main/deploy
+                            :exec-args {:host "prod.super-cool.com"}}
+           :deploy-to-qa {:exec-fn main/deploy
+                          :exec-args {:host "qa.super-cool.com"}}
+
            :deploy-to {:exec-fn main/deploy}
            :prod {:exec-args {:host "prod.super-cool.com"}}
            :qa {:exec-args {:host "qa.super-cool.com"}}
@@ -9,5 +14,8 @@
            :repl {:extra-deps {org.endot/cljdev {:git/url "https://github.com/justone/cljdev.git"
                                                  :sha "dc9171f9f091e476a734714d128704876c7fa679"}}
                   :main-opts  ["-m" "cljdev.repl"]
-                  :exec-fn cljdev.repl/start}}
+                  :exec-fn cljdev.repl/start}
+           :nate {:exec-args {:prepl false
+                              :refresh true}}
+           }
  :paths ["src"]}
